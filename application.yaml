@@ -1,8 +1,8 @@
-apiVersion: argoproj.io/v1alpha
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx-argo-application
-  namespace: argocd
+  namespace: argo-cd
 spec:
   project: default
   
