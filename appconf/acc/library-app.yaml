@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-argo-application
-  namespace: argo-cd
+  name: library-app
+  namespace: argo-apps-conf
 spec:
-  project: default
+  project: apps-acc
   
   source:  
     repoURL: https://github.com/cpjboon/argocd.git
     targetRevision: HEAD
-    path: dev
+    path: apps/library-app/overlays/acc
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
+    namespace: library-app-acc
 
   syncPolicy:
     syncOptions:

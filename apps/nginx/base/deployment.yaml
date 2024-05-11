@@ -1,16 +1,12 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
-  namespace: foo
-  labels:
-    app: nginx
+  name: nginx-deployment
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: nginx
+  replicas: 3
   template:
     metadata:
       labels:
@@ -18,7 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: cpjboon/nginx:v0.1.2
+        image: nginx:1.25.2
         ports:
-          - containerPort: 80
-
+        - containerPort: 80

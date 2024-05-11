@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: library-app
+  namespace: argo-apps-conf
+spec:
+  project: apps-dev
+  
+  source:  
+    repoURL: https://github.com/cpjboon/argocd.git
+    targetRevision: HEAD
+    path: apps/library-app/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: library-app-dev
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
+
