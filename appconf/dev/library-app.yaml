@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: library-app
-  namespace: argo-apps-conf
+  name: library-app-dev
+  namespace: argo-cd
 spec:
-  project: apps-dev
+  project: default
   
   source:  
     repoURL: https://github.com/cpjboon/argocd.git
